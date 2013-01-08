@@ -1,0 +1,38 @@
+#+TITLE: Paul Horsfall
+
+* About
+
+I'm a software developer based in Leeds in the UK.
+
+Since 2008 I've been working as a freelance web developer building
+apps with Ruby and Rails. I've also spent time teaching Ruby to school
+children and on occasion Rails to adults.
+
+* Skills
+
+My expertise is as a back-end web developer. Most of my recent
+experience is with Ruby on Rails, although I'm willing and able to
+learn any modern language or framework if it's the right tool for the
+job.
+
+The projects I've worked on recently have typically been built with
+the following tools and frameworks at their core:
+
+- Ruby on Rails
+- MySQL
+- Rspec/Capybara
+- jQuery
+- Backbone.js
+
+* Contact
+
+I'm currently looking for new projects to work on. If you need a
+developer for your project I'd love to chat to you about how I can
+help you. The best way to get in touch with me is to send an email to
+[[mailto:horsfallp@gmail.com][horsfallp@gmail.com]]. Alternatively if you enjoy real ale come find me
+at [[http://leedsrubything.org][Leeds Ruby Thing]] — everyone's welcome!
+
+* Elsewhere
+
+- [[http://github.com/phorsfall][GitHub]]
+- [[http://deaddeadgood.com][Blog]]
