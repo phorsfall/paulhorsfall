@@ -1,7 +1,11 @@
 body {
-    margin: 1em;
     padding: 0;
-    font-family: Baskerville, Garamond, Palatino, "Palatino Linotype", "Hoefler Text", "Times New Roman", serif;
-    max-width: 28em;
-    font-size: 1.1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0 20% 0 20%;
+    font-size: 1.0em;
+    color: #333;
+}
+
+a {
+    color: #E95D22;
 }
