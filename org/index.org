@@ -13,6 +13,10 @@ help.
 The best way to get in touch with me is to send an email to
 [[mailto:horsfallp@gmail.com][horsfallp@gmail.com]].
 
+* Latest
+
+- I wrote about [[file:articles/grbm-sparsity.org][GRBM Sparsity]].
+
 * Elsewhere
 
 - [[http://github.com/phorsfall][GitHub]]

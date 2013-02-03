@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>GRBM Sparsity</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="GRBM Sparsity"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-02-03 16:12:42 GMT"/>
+<meta name="author" content="Paul Horsfall"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+
+<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+<link rel="stylesheet" href="css/home.css" type="text/css" />
+
+
+</head>
+<body>
+<div id="org-div-home-and-up" style="text-align:right;font-size:70%;white-space:nowrap;">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">GRBM Sparsity</h1>
+
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">An Observation</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+The variance of the Gaussian visible units of an RBM with rectified
+linear hidden units affects the sparsity<sup><a class="footref" name="fnr.1" href="#fn.1">1</a></sup> of the representation
+learned when the model is trained with contrastive divergence.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Demonstration</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+To demonstrate this effect I trained a model with 400 hidden units on
+natural image patches. (<a href="https://github.com/phorsfall/ml/tree/master/ex/grbm/sparsity.py">Source code</a>.) For each training run the
+standard deviation of the visible units (&sigma;) was fixed. The visible
+units were sampled from during training.<sup><a class="footref" name="fnr.2" href="#fn.2">2</a></sup>
+</p>
+
+<div class="figure">
+<p><img src="images/grbm-sparsity-fig1.png"  alt="images/grbm-sparsity-fig1.png" /></p>
+<p>Figure 1</p>
+</div>
+
+<p>
+Figure 1 (<a href="images/grbm-sparsity-fig1.png">full size</a>) shows how the sparsity in the hidden units
+changes during training for several values of &sigma;. It's clear that for
+this model increasing &sigma; increases the sparsity of the learned
+representation.
+</p>
+
+<div class="figure">
+<p><img src="images/grbm-sparsity-fig2.png"  alt="images/grbm-sparsity-fig2.png" /></p>
+<p>Figure 2</p>
+</div>
+
+<p>
+In figure 2 (<a href="images/grbm-sparsity-fig2.png">full size</a>) each row shows the first ten features learned
+for a particular setting of &sigma;. The rows are in order of ascending
+variance or equivalently ascending sparsity. Features toward the top
+of this figure tend to be short edge detectors or point filters.
+Moving down the figure the point filters disappear and the edge
+detectors become longer and broader.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Possible Implications</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+When an RBM is used as an unsupervised feature extractor it is
+sometimes desirable to learn a sparse representation. One way this can
+be achieved is by adding an extra term to the optimization objective.
+An alternative is to add noise to the visible units during training
+and think of the visible variance as a meta-parameter for controlling
+sparsity.
+</p>
+<p>
+If instead the objective is to learn a good generative model it makes
+sense to learn the visible variances. In such a setting, the
+observation made here suggests that the learning rate and initial
+values chosen for the variances could have an appreciable effect on
+the learned model.
+</p>
+<p>
+For example, if the variances are initialized to relatively high
+values and a small learning rate is applied to them, then I would
+expect the sampling noise present during the early part of training to
+induce more sparsity in the hidden units than would be the case with
+smaller initial values and a bigger learning rate.<sup><a class="footref" name="fnr.3" href="#fn.3">3</a></sup>
+</p>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+<p class="footnote"><sup><a class="footnum" name="fn.1" href="#fnr.1">1</a></sup> For a model with rectified linear hidden units sparsity is the
+  fraction of hidden units that output a zero, averaged over training
+  cases.
+</p>
+
+
+<p class="footnote"><sup><a class="footnum" name="fn.2" href="#fnr.2">2</a></sup> If the visible units are not sampled then the variance still
+  affects sparsity but in a less predictable way. Furthermore, the
+  features learned are more noisy, less local and harder to interpret
+  as meaningful features such as edge detectors.
+</p>
+
+
+<p class="footnote"><sup><a class="footnum" name="fn.3" href="#fnr.3">3</a></sup> Perhaps it is this phenomenon that Alex Krizhevsky is
+  describing in <a href="http://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Learning Multiple Layers of Features from Tiny Images</a>:
+  "The trick to doing this correctly is to set the learning rate of
+  the standard deviations to a sufficiently low value. In our
+  experience, it should be about 100 to 1000 times smaller than the
+  learning rate of the weights. Failure to do so produces a lot of
+  point filters that never evolve into edge filters."
+</p>
+
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

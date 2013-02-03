@@ -9,3 +9,23 @@ body {
 a {
     color: #E95D22;
 }
+
+/* It's unlikely that I'll always want figures layed out this way.
+This could be pulled out into a separate CSS file and included only on
+specific pages. e.g. #+STYLE: <link /> */
+
+div.figure {
+    text-align: center;
+    font-size: 0.8em;
+    float: right;
+    width: 35%;
+    clear: both;
+}
+
+div.figure p {
+    margin: 0;
+}
+
+div.figure img {
+    width: 100%;
+}
