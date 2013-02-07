@@ -5,7 +5,7 @@
 
 * An Observation
 
-The variance of the Gaussian visible units of an RBM with rectified
+The variance of the visible units of a Gaussian RBM with rectified
 linear hidden units affects the sparsity[fn:1] of the representation
 learned when the model is trained with contrastive divergence.
 
