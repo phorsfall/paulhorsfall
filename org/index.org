@@ -15,6 +15,7 @@ The best way to get in touch with me is to send an email to
 
 * Latest
 
+- I finished 9th in Kaggle's [[http://www.kaggle.com/c/whale-detection-challenge/leaderboard][whale detection challenge]].
 - I wrote about [[file:articles/grbm-sparsity.org][GRBM Sparsity]].
 
 * Elsewhere
