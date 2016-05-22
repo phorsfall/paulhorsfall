@@ -3,12 +3,8 @@
 
 * About
 
-I'm a freelance software developer based in Leeds in the UK. My main
-interests are the web and machine learning.
-
-I'm currently looking for new projects to work on. If you need a
-developer for your project I'd love to chat to you about how I can
-help.
+I'm a software developer based in Leeds in the UK. I work on the
+probabilistic programming language [[http://webppl.org][WebPPL]].
 
 The best way to get in touch with me is to send an email to
 [[mailto:horsfallp@gmail.com][horsfallp@gmail.com]].
@@ -21,7 +17,3 @@ The best way to get in touch with me is to send an email to
   it might be useful to someone.
 - I finished 9th in Kaggle's [[http://www.kaggle.com/c/whale-detection-challenge/leaderboard][whale detection challenge]].
 - I wrote about [[file:articles/grbm-sparsity.org][GRBM Sparsity]].
-
-* Elsewhere
-
-- [[http://github.com/phorsfall][GitHub]]
