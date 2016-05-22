@@ -1,14 +1,19 @@
 body {
     padding: 0;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 0 20% 0 20%;
-    font-size: 1.0em;
-    color: #333;
+    font-family: serif;
+    margin: 0 5% 0 5%;
+    max-width: 45em;
 }
 
-a {
-    color: #E95D22;
+h1, h2 {
+    font-size: 1.2em;
 }
+
+.footpara:nth-child(2) { display: inline; }
+.footpara { display: block; }
+.footdef  { margin-bottom: 1em; }
+
+.figure-number { display: none; }
 
 /* It's unlikely that I'll always want figures layed out this way.
 This could be pulled out into a separate CSS file and included only on
