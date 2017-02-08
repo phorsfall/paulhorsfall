@@ -11,6 +11,8 @@ The best way to get in touch with me is to send an email to
 
 * Latest
 
+- We shared a tech report that describes progress on a project I'm
+  contributing to: [[https://arxiv.org/abs/1610.05735][Deep Amortized Inference for Probabilistic Programs]]
 - I've shared my Python/Theano [[https://dl.dropboxusercontent.com/u/501760/ml/dbm.tar.gz][Deep Boltzmann Machine]] implementation.
   It includes code to reproduce the MNIST density model result from
   the original paper. It's not cleanly packaged for easy re-use, but
