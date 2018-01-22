@@ -11,6 +11,7 @@ The best way to get in touch with me is to send an email to
 
 * Latest
 
+- I wrote a [[http://pyro.ai/examples/air.html][tutorial]] on the implementation of [[https://arxiv.org/abs/1603.08575][AIR]] in [[http://pyro.ai][Pyro]].
 - We shared a tech report that describes progress on a project I'm
   contributing to: [[https://arxiv.org/abs/1610.05735][Deep Amortized Inference for Probabilistic Programs]]
 - I've shared my Python/Theano [[https://dl.dropboxusercontent.com/u/501760/ml/dbm.tar.gz][Deep Boltzmann Machine]] implementation.
