@@ -3,21 +3,24 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2020-09-01 Tue 15:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GRBM Sparsity</title>
-<!-- 2016-05-22 Sun 12:36 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Paul Horsfall" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Paul Horsfall" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="http://paulhorsfall.co.uk/css/normalize.css" type="text/css" />
 <link rel="stylesheet" href="http://paulhorsfall.co.uk/css/home.css" type="text/css" />
+<script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101275299);</script>
+<script async src="//static.getclicky.com/js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -63,32 +66,32 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">GRBM Sparsity</h1>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">An Observation</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgba0bac8" class="outline-2">
+<h2 id="orgba0bac8">An Observation</h2>
+<div class="outline-text-2" id="text-orgba0bac8">
 <p>
 The variance of the visible units of a Gaussian RBM with rectified
-linear hidden units affects the sparsity<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> of the representation
+linear hidden units affects the sparsity<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> of the representation
 learned when the model is trained with contrastive divergence.
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Demonstration</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org5a0617d" class="outline-2">
+<h2 id="org5a0617d">Demonstration</h2>
+<div class="outline-text-2" id="text-org5a0617d">
 <p>
 To demonstrate this effect I trained a model with 400 hidden units on
 natural image patches. (<a href="https://github.com/phorsfall/ml/tree/master/ex/grbm/sparsity.py">Source code</a>.) For each training run the
 standard deviation of the visible units (&sigma;) was fixed. The visible
-units were sampled from during training.<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+units were sampled from during training.<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
 
 
 <div class="figure">
 <p><img src="images/grbm-sparsity-fig1.png" alt="grbm-sparsity-fig1.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> Figure 1</p>
+<p><span class="figure-number">Figure 1: </span>Figure 1</p>
 </div>
 
 <p>
@@ -102,7 +105,7 @@ representation.
 <div class="figure">
 <p><img src="images/grbm-sparsity-fig2.png" alt="grbm-sparsity-fig2.png" />
 </p>
-<p><span class="figure-number">Figure 2:</span> Figure 2</p>
+<p><span class="figure-number">Figure 2: </span>Figure 2</p>
 </div>
 
 <p>
@@ -116,9 +119,9 @@ detectors become longer and broader.
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Possible Implications</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org99ef052" class="outline-2">
+<h2 id="org99ef052">Possible Implications</h2>
+<div class="outline-text-2" id="text-org99ef052">
 <p>
 When an RBM is used as an unsupervised feature extractor it is
 sometimes desirable to learn a sparse representation. One way this can
@@ -141,7 +144,7 @@ For example, if the variances are initialized to relatively high
 values and a small learning rate is applied to them, then I would
 expect the sampling noise present during the early part of training to
 induce more sparsity in the hidden units than would be the case with
-smaller initial values and a bigger learning rate.<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>
+smaller initial values and a bigger learning rate.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
 </p>
 </div>
 </div>
@@ -149,20 +152,20 @@ smaller initial values and a bigger learning rate.<sup><a id="fnr.3" name="fnr.3
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
 For a model with rectified linear hidden units sparsity is the
 fraction of hidden units that output a zero, averaged over training
 cases.
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
 If the visible units are not sampled then the variance still
 affects sparsity but in a less predictable way. Furthermore, the
 features learned are more noisy, less local and harder to interpret
 as meaningful features such as edge detectors.
-</p></div>
+</p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
 Perhaps it is this phenomenon that Alex Krizhevsky is
 describing in <a href="http://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Learning Multiple Layers of Features from Tiny Images</a>:
 "The trick to doing this correctly is to set the learning rate of
@@ -170,7 +173,7 @@ the standard deviations to a sufficiently low value. In our
 experience, it should be about 100 to 1000 times smaller than the
 learning rate of the weights. Failure to do so produces a lot of
 point filters that never evolve into edge filters."
-</p></div>
+</p></div></div>
 
 
 </div>
