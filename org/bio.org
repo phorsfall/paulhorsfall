@@ -1,0 +1,51 @@
+#+TITLE: Paul Horsfall - Bio
+#+STARTUP: showall
+
+* Summary
+
+I've worked as a freelance/contract computer programmer since 2008. I
+initially worked on web development projects, but later switched to
+doing work on probabilistic programming. On recent projects I've
+primarily worked with Python and JavaScript, though I have varying
+degrees of experience with several other languages, including Haskell,
+Ruby, and Julia. I also have experience with a range of Python
+libraries used for numerical computing, including NumPy, SciPy and
+PyTorch.
+
+* Probabilistic Programming
+
+My recent work has been on [[https://en.wikipedia.org/wiki/Probabilistic_programming][probabilistic programming]], a field at the
+intersection of probability theory, programming languages, and machine
+learning.
+
+From 2015 to 2018 I worked for Stanford University on the [[http://webppl.org/][WebPPL]]
+project.
+
+The single biggest strand of work I contributed to was a research
+project that aimed to bring together ideas from probabilistic
+programming and deep neural networks. This is describe in [[https://arxiv.org/abs/1610.05735][Deep
+Amortized Inference for Probabilistic Programs]].
+
+Along side this, I also did all the usual kinds of work required on a
+typical software project: fix bugs, refactor, write documentation,
+write tests, field issues, etc.
+
+During 2018 and 2019 I worked for Uber AI, where the amortized
+inference work from WebPPL was being refined and extended by the [[https://pyro.ai/][Pyro]]
+project. This is described in [[https://arxiv.org/abs/1810.09538][Pyro: Deep Universal Probabilistic
+Programming]].
+
+I contributed an implementation of DeepMind's [[https://arxiv.org/abs/1603.08575][Attend, Infer, Repeat]]
+model to the project and wrote a [[https://pyro.ai/examples/air.html][tutorial]] that describes how it works.
+
+I also developed [[https://github.com/pyro-ppl/brmp#readme][BRMP]], a tool that aimed to make it easy to fit
+Bayesian regression models using Pyro.
+
+* The Web
+
+I have experience with HTML, CSS, Javascript, HTTP, DOM, etc. I have
+worked on several commercial web development projects, though I now
+see these as a convenient way to quickly build cross-platform GUIs.
+For example, I used them to developed the infrastructure used to run a
+series of adaptive psychology experiments on Mechanical Turk. See
+section 6.3 and appendix D2 of this [[https://arxiv.org/abs/1903.05480][paper]] for more details.

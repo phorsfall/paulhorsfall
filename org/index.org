@@ -3,21 +3,10 @@
 
 * About
 
-I'm a software developer based in Leeds in the UK. I work on the
-probabilistic programming language [[http://webppl.org][WebPPL]].
+I'm a computer programmer based in Leeds in the UK. The best way to
+contact me is to send an email to [[mailto:horsfallp@gmail.com][horsfallp@gmail.com]].
 
-The best way to get in touch with me is to send an email to
-[[mailto:horsfallp@gmail.com][horsfallp@gmail.com]].
-
-* Latest
-
-- [[https://arxiv.org/abs/1810.09538][Pyro: Deep Universal Probabilistic Programming]]
-- I wrote a [[http://pyro.ai/examples/air.html][tutorial]] on the implementation of [[https://arxiv.org/abs/1603.08575][AIR]] in [[http://pyro.ai][Pyro]].
-- We shared a tech report that describes progress on a project I'm
-  contributing to: [[https://arxiv.org/abs/1610.05735][Deep Amortized Inference for Probabilistic Programs]]
-- I've shared my Python/Theano [[https://dl.dropboxusercontent.com/u/501760/ml/dbm.tar.gz][Deep Boltzmann Machine]] implementation.
-  It includes code to reproduce the MNIST density model result from
-  the original paper. It's not cleanly packaged for easy re-use, but
-  it might be useful to someone.
-- I finished 9th in Kaggle's [[http://www.kaggle.com/c/whale-detection-challenge/leaderboard][whale detection challenge]].
-- I wrote about [[file:articles/grbm-sparsity.org][GRBM Sparsity]].
+I'm currently available for hire. My [[file:bio.org][bio]] gives an impression of my
+skills and recent experience. Please feel free to get in touch if you
+have a project (of any kind!) you think I might be able to help with,
+I'd be happy to chat.
