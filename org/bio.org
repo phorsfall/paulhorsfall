@@ -23,7 +23,7 @@ project.
 
 The single biggest strand of work I contributed to was a research
 project that aimed to bring together ideas from probabilistic
-programming and deep neural networks. This is describe in [[https://arxiv.org/abs/1610.05735][Deep
+programming and deep neural networks. This is described in [[https://arxiv.org/abs/1610.05735][Deep
 Amortized Inference for Probabilistic Programs]].
 
 Along side this, I also did all the usual kinds of work required on a
