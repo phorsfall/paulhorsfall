@@ -32,7 +32,7 @@ write tests, field issues, etc.
 
 During 2018 and 2019 I worked for Uber AI, where the amortized
 inference work from WebPPL was being refined and extended by the [[https://pyro.ai/][Pyro]]
-project. This is described in [[https://arxiv.org/abs/1810.09538][Pyro: Deep Universal Probabilistic
+project. This is described in [[https://jmlr.csail.mit.edu/papers/v20/18-403.html][Pyro: Deep Universal Probabilistic
 Programming]].
 
 I contributed an implementation of DeepMind's [[https://arxiv.org/abs/1603.08575][Attend, Infer, Repeat]]
