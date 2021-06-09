@@ -7,6 +7,7 @@ I'm a computer programmer based in Leeds in the UK. The best way to
 contact me is to send an email to [[mailto:horsfallp@gmail.com][horsfallp@gmail.com]].
 
 I'm currently available for hire. My [[file:bio.org][bio]] gives an impression of my
-skills and recent experience. Please feel free to get in touch if you
-have a project (of any kind!) you think I might be able to help with,
-I'd be happy to chat.
+skills and recent experience. My [[https://github.com/null-a][GitHub profile]] may also be of
+interest. Please feel free to get in touch if you have a project (of
+any kind!) you think I might be able to help with, I'd be happy to
+chat.
