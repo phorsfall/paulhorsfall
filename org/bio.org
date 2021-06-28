@@ -43,9 +43,11 @@ Bayesian regression models using Pyro.
 
 * The Web
 
-I have experience with HTML, CSS, Javascript, HTTP, DOM, etc. I have
-worked on several commercial web development projects, though I now
-see these as a convenient way to quickly build cross-platform GUIs.
-For example, I used them to developed the infrastructure used to run a
-series of adaptive psychology experiments on Mechanical Turk. See
-section 6.3 and appendix D2 of this [[https://arxiv.org/abs/1903.05480][paper]] for more details.
+I have experience with HTML, CSS, Javascript, HTTP, DOM, etc. It's
+been a while since I last did any commercial web development, but I do
+occasionally use web technologies to create cross-platform GUIs.
+
+For example, I built a data annotation tool as part of a machine
+learning pipeline, and I developed the infrastructure used to run a
+series of adaptive psychology experiments on Mechanical Turk. (See
+section 6.3 and appendix D2 of this [[https://arxiv.org/abs/1903.05480][paper]] for more details.)
