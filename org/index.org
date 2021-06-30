@@ -13,7 +13,7 @@ I'd be happy to chat.
 
 * Projects
 
-Here are some projects I'm actively working on:
+Here are some projects I'm currently working on:
 
 [[https://github.com/null-a/frost][*frost*]] -- A simple RISC-V CPU implemented in Verilog
 
