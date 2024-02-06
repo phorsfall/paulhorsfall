@@ -13,8 +13,6 @@ I'd be happy to chat.
 
 * Projects
 
-Here are some projects I'm currently working on:
-
-[[https://github.com/null-a/frost][*frost*]] -- A simple RISC-V CPU implemented in Verilog
-
-[[https://github.com/null-a/ice40-breakout-pcb][*iCE40 break-out PCB*]] -- A development board for the Lattice iCE40 FPGA 
+- [[file:articles/scope.org][Sampling Scope Prototype]]
+- [[https://github.com/null-a/frost][frost]] -- A simple RISC-V CPU implemented in Verilog
+- [[https://github.com/null-a/ice40-breakout-pcb][iCE40 break-out PCB]] -- A development board for the Lattice iCE40 FPGA

@@ -1,0 +1,198 @@
+#+TITLE: Sampling Scope Prototype
+#+STARTUP: showall
+
+/February 2024/
+
+* Introduction
+
+This post describes a prototype sampling oscilloscope I'm working on.
+
+The current prototype probably has a bandwidth around 7 GHz and an
+equivalent time sample rate of around 100 Gsps[fn:0].
+
+This device is a [[https://en.wikipedia.org/wiki/Oscilloscope_types#Digital_sampling_oscilloscopes][sampling oscilloscope]], not a real-time oscilloscope.
+This means that it can only capture repetitive signals. For this and
+other reasons, you're not going to be able to put some probes on this
+and use it for general circuit debugging. Nevertheless, there are use
+cases for this class of instrument.
+
+[fn:0] There's room to improve this somewhat without changing the
+overall approach.
+
+* Design
+
+** Not Invented Here (Literally)
+
+Let me say upfront that I don't take any credit whatsoever for the
+high-level design of this device. The basic idea has been around for a
+long time, and my take on it borrows heavily from a recent [[https://hackaday.io/project/167292-8-ghz-sampling-oscilloscope][project]] by
+Ted Yapo. I provide a slightly more comprehensive [[History][history]] below.
+
+** Equivalent Time Sampling
+
+The design builds on the principle of sequential equivalent time
+sampling. The idea here is to exploit the (assumed) repetitive nature
+of the input signal by collecting samples over multiple repetitions of
+the input signal.
+
+For example, on the first repetition of the input we might sample the
+input at the start of the cycle, call this point in time t=0. Then on
+the second repetition we might sample at some small offset from the
+start, at say t=\Delta. On the third repetition we sample at
+t=2\Delta, and so on.
+
+The sequence of samples collected in this way captures the input at an
+(equivalent) sample rate of 1/\Delta, with the advantage of not
+imposing any restriction on how rapidly the samples are actually
+collected.
+
+#+CAPTION: Sequential equivalent time sampling.
+[[file:images/scope-sets.png]]
+
+Any device that implements this approach needs two main components.
+First, some kind of sampling device to capture the input at a point in
+time, and second a way to precisely control the time at which a sample
+is taken within a repetition, traditionally called a time-base.
+
+** Sampling
+
+Accurately sampling the input with the requisite bandwidth is a
+non-trivial undertaking, especially on a budget.
+
+The key idea in this design is to use a comparator as a [[https://en.wikipedia.org/wiki/Successive-approximation_ADC][successive
+approximation ADC]]. It turns out this fits very well with the
+sequential equivalent time sampling approach.
+
+Since we are assuming the input is repetitive, we can perform the
+individual steps of the binary search across multiple repetitions of
+the input. This side-steps the problem of the input signal changing
+between steps that usually requires a sample and hold circuit in a
+successive approximation ADC. Instead, the input can be sampled
+directly by a fast (latched) comparator.
+
+Comparators with sufficient bandwidth are available off the shelf, and
+they are relatively inexpensive.
+
+** Time-base
+
+Sequential equivalent time sampling requires some way to synchronise
+the scope and the device under test (DUT). For simplicity, I currently
+assume that the DUT can be driven by an external clock[fn:1]. In this
+case, the scope itself can generate a clock to drive the DUT, and the
+two are synchronised.
+
+The only extra functionality that's needed to implement the time-base
+is the ability to generate a strobe signal to drive the sampling
+comparator, that can be shifted to be any of 0, \Delta{}, 2\Delta,
+3\Delta, etc. seconds behind the clock. There are off the shelf
+programmable delay line ICs that do exactly this, with the resolution
+required.
+
+In order to make accurate measurements it's necessary to calibrate
+such a delay line. One approach is to include the delay line as part
+of a [[https://en.wikipedia.org/wiki/Ring_oscillator][ring oscillator]] and measure the oscillator's frequency, from
+which the delay length can be calculated[fn:2].
+
+** Block Diagram
+
+This block diagram illustrates the high level design just described:
+
+#+CAPTION: Sampling scope block diagram.
+[[file:images/scope-block-diagram.png]]
+
+** History
+
+Here's a potted history of this idea, as best I know it:
+
+- "A sampling voltage tracker for analyzing high speed waveforms"
+  (McCabe, 1975)
+- [[https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=7782][A Wideband Sampling Voltmeter]] (Souders et al., 1997). This is just
+  one publication from a larger NIST research effort.
+- An eevblog user described the [[https://www.eevblog.com/forum/testgear/10-ghz-usb-oscilloscope-by-darwin-sabanovic/msg375798/#msg375798][high-level design]], including
+  [[https://www.eevblog.com/forum/testgear/10-ghz-usb-oscilloscope-by-darwin-sabanovic/msg376453/#msg376453][calibration]] of the delay line, in 2014.
+- [[https://github.com/loxodes/tdr][Jon Klein's project]]
+- [[https://hackaday.io/project/167292-8-ghz-sampling-oscilloscope][Ted Yapo's project]]
+
+# - The "Measuring High-speed AC Waveforms" circuit from the [[https://www.analog.com/media/en/technical-documentation/data-sheets/AD9500.pdf][datasheet]]
+#   for the AD9500 shows the high-level approach.
+
+# - This forum [[https://maker.pro/forums/threads/analog-sampler.98635/#post-679921][post]] from 2007 suggests using the ADCMP582 comparator for
+#   sampling.
+
+* Build
+
+#+CAPTION: Photo of the prototype.
+[[file:images/scope-prototype-original.jpg][file:images/scope-prototype-small.jpg]]
+
+The current prototype is split across two PCBs, one each for the
+sampling and delay line sub-circuits. I'm using an Analog Devices
+ADCMP582 comparator for sampling, and a Micrel SY89296U for the delay
+line.
+
+The boards were laid out in KiCad, manufactured by JLCPCB, and
+assembled by hand.
+
+For control I'm using a Raspberry Pi Pico[fn:5].
+
+The whole thing is powered from a USB charger. A third-party DC-DC
+converter generates positive and negative rails at around ±6.5V. Each
+PCB then has local voltage regulation providing 3.3V and/or ±5V.
+
+One area of the build that I focused attention on was the footprint of
+the SMA connector used at the input. I've shared details of this in a
+[[https://www.eevblog.com/forum/rf-microwave/sma-connector-footprint-design-project/][thread]] on the eevblog forum.
+
+* Testing
+
+Initial testing has been performed using a fast edge generator as the
+DUT. This is based on an Analog Devices ADCMP580 comparator, which has
+an output capable of generating edges with a 20/80 transition time of
+37ps.
+
+Here's an example measurement taken with the scope:
+
+#+CAPTION: Example sweep captured by the prototype.
+#+NAME: fig:sweep
+[[file:images/scope-sweep.png]]
+
+In principle the transition time of this edge can be used to estimate
+the bandwidth of the scope, but I'm yet to implement time-base
+calibration so I can't do this accurately. However, the 20/80
+transition time of the measured edge (which is very roughly 48ps) is
+plausibly consistent with the scope's bandwidth being somewhere close
+to the 8 GHz bandwidth of the comparator[fn:4].
+
+* Next Steps
+
+Some obvious next steps include:
+
+- Time-base calibration. The hardware already includes the ability to
+  include the delay line in a ring oscillator. With the addition of a
+  clock divider I hope to be able to use the Pico as a frequency
+  counter.
+- Diagnose and fix the problem causing erroneous samples to
+  occasionally appear in captured data[fn:3].
+
+Longer term, there are many paths I could take from here, though I've
+not yet settled on a specific plan.
+
+Feel free to [[mailto:horsfallp@gmail.com][email me]] if you're interested in this stuff, I'd love to
+chat.
+
+[fn:1] This can be relaxed by adding trigger circuitry to the
+time-base, allowing the system to be driven by a clock recovered from
+the DUT.
+
+[fn:2] Actually, it's not possible to compute the absolute delay
+without knowing how much delay is present in the rest of the ring
+oscillator. However, it is possible to compute the difference in delay
+between any two settings of the delay line, which is sufficient.
+
+[fn:3] I cherry-picked the [[fig:sweep][example sweep]] to avoid this.
+
+[fn:4] Assuming the connection between the two comparators has a
+bandwidth somewhere around 12 GHz.
+
+[fn:5] With a second Pico to program the first.
+
+[fn:6] Of the input signal against some adjustable threshold.
