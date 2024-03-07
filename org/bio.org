@@ -15,10 +15,10 @@ languages, including [[https://github.com/probmods/webppl][JavaScript]], [[https
 
 ** Error Correction
 
-In 2023 I was contracted to work on an error correction research
-project. My main contribution was a Python/JAX implementation of
-[[https://arxiv.org/abs/1607.04793][Neural Belief-Propagation]]. I also worked on testing, documenting and
-refactoring existing code within the project.
+In 2023 I was contracted to work on an [[https://en.wikipedia.org/wiki/Low-density_parity-check_code][error correction]] research
+project. My main contribution was a Python/JAX implementation of a
+[[https://arxiv.org/abs/1607.04793][Neural Belief-Propagation]] based decoder. I also worked on testing,
+documenting and refactoring existing code within the project.
 
 ** Probabilistic Programming
 
