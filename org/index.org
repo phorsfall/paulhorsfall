@@ -13,6 +13,7 @@ I'd be happy to chat.
 
 * Projects
 
+- [[https://hackaday.io/project/196636-homebrew-sdr-receiver][Homebrew SDR Receiver]]
 - [[file:articles/scope.org][Sampling Scope Prototype]]
 - [[https://github.com/null-a/frost][frost]] -- A simple RISC-V CPU implemented in Verilog
 - [[https://github.com/null-a/ice40-breakout-pcb][iCE40 break-out PCB]] -- A development board for the Lattice iCE40 FPGA
