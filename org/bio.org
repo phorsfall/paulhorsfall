@@ -51,11 +51,14 @@ Bayesian regression models using Pyro.
 
 ** The Web
 
-I have experience with HTML, CSS, Javascript, HTTP, DOM, etc. It's
-been a while since I last did any commercial web development, but I do
-occasionally use web technologies to create cross-platform GUIs.
+I've done a reasonable amount of web development over the years.
 
-For example, I built a data annotation tool as part of a machine
-learning pipeline, and I developed the infrastructure used to run a
-series of adaptive psychology experiments on Mechanical Turk. (See
-section 6.3 and appendix D2 of this [[https://arxiv.org/abs/1903.05480][paper]] for more details.)
+Most recently, I spent a year or so helping build Kronistic, which was
+something like a "dynamic meeting scheduling tool for teams". The
+back-end was implemented with Python, Flask, Celery & PostgreSQL
+running on AWS. The UI was plain JS, HTML & CSS plus a little bit of
+jQuery.
+
+Kronistic was built at a start-up I co-founded. The business didn't
+work out and we shut down the site, though we've since open-sourced
+[[https://github.com/kronistic/kronistic][the code]].
